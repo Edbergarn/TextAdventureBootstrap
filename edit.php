@@ -8,7 +8,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Soloäventyr - Redigera</title>
+	<title>Jörgens Kärleksäventyr - Redigera</title>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -29,7 +29,7 @@
 				<a class="nav-link" href="index.php">Hem</a>	
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="play.php?page=7">Spela</a>	
+				<a class="nav-link" href="play.php">Spela</a>	
 			</li>			
 			<li class="nav-item">
 				<a class="nav-link active" href="edit.php">Redigera</a>	
@@ -43,7 +43,20 @@
 	</nav>
 <main class="content">
 	<section>
-		<h1>Redigera</h1>
+		<div class="containter">
+			<div class="row">
+				<div class="col-1">
+				</div>				
+				<div class="col-10">
+				<h1>Redigera</h1>
+				</div>
+				<div class="col-1">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-1">
+				</div>
+			<div class="col-10">
 			<table>
 			<tr>
 				<th>ID</th>
@@ -62,8 +75,7 @@
 		$stmt->bindParam(':id', $filteredId);
 		$stmt->execute(); //Kör "Delete"
 		echo "deleted id: " . $filteredId;
-		header('location:edit.php'); // //Löste mitt problem ang delay på att saker händer
-		die();
+		echo "<meta http-equiv=refresh content=\"0; URL=edit.php\">";
 	}
 
 	$stmt = $dbh->prepare("SELECT * FROM story");
@@ -78,18 +90,27 @@
 		echo "<td><a href=\"edit.php?edit=" . $value['id'] . "\"><i class=\"material-icons\">edit</i></a>";
 		echo "<a href=\"edit.php?delete=" . $value['id'] . "\"><i class=\"material-icons\">delete_forever</i></a></td>";
 		echo "</tr>";
-	}
-
-	
+	}	
 ?>
-
-		</table>
+				</table>
+			</div>
+			<div class="col-1">
+			</div>
+		</div>
 	</section>
-	<section class="forms">
+	<div class="row">
+		<div class="col-1">
+		</div>
+		<div class="col-10">
+			<section class="forms">
+
+			<form action="" method="post">
+				<div class="form-group">
+					<label for="text">Story</label>
+				</div>
+				<div class="form-group">	
+					<textarea name="text" id="textarea" rows="5" cols="50">
 <?php
-	echo "<form action=\"edit.php\" method=\"post\">";
-	echo "<label for=\"text\">Story</label>";
-	echo "<textarea name=\"text\" id=\"textarea\" rows=\"5\" cols=\"50\">";
 	if(isset($_GET['edit'])) {
 		$filteredId = filter_input(INPUT_GET, "edit", FILTER_VALIDATE_INT);
 		$stmt = $dbh->prepare("SELECT * FROM story WHERE id = :id");
@@ -100,18 +121,32 @@
 
 	}
 	echo "</textarea>";
+	echo "</div>";
 	echo "<label for=\"place\">Place</label>";
 	if(isset($_GET['edit'])) {
-		echo "<input type=\"text\" name=\"place\" id=\"place\" value=\"" . $row['place'] . "\">";	
-		echo "<input type=\"hidden\" name=\"id\" id=\"id\" value=\"" . $row['id'] . "\">";	
-		echo "<input type=\"submit\" name=\"update\" id=\"insert\" value=\"Uppdatera\">";		
+		echo "<div class=\"form-group\">";
+			echo "<input type=\"text\" name=\"place\" id=\"place\" value=\"" . $row['place'] . "\">";
+		echo "</div>";
+		echo "<div class=\"form-group\">";
+			echo "<input type=\"hidden\" name=\"id\" id=\"id\" value=\"" . $row['id'] . "\">";
+		echo "</div>";
+		echo "<div class=\"form-group\">";
+			echo "<button type=\"submit\" name=\"update\" id=\"insert\">Uppdatera</button>";
+		echo "</div>";
+
+			
 	}
 	else {
-		echo "<input type=\"text\" name=\"place\" id=\"place\">";
-		echo "<input type=\"submit\" name=\"insert\" id=\"insert\" value=\"Lägg till\">";
+		echo "<div class=\"form-group\">";
+			echo "<input type=\"text\" name=\"place\" id=\"place\">";
+		echo "</div";
+		echo "<div class=\"form-group\">";
+			echo "<input type=\"submit\" name=\"insert\" id=\"insert\" value=\"Lägg till\">";
+		echo "</div>";
 	}
 
 	echo "</form>";
+	echo "</div>";
 	echo "</section>";
 
 	if (isset($_POST['insert'])) {
@@ -123,8 +158,7 @@
 		$stmt->bindParam(':place', $filteredPlace);
 		$stmt->execute(); //Kör "add"
 
-		header('location: edit.php'); //Löste mitt problem ang delay på att saker 
-		die();
+		echo "<meta http-equiv=refresh content=\"0; URL=edit.php\">";
 
 	}	elseif(isset($_POST['update'])) {
 			$filteredText= filter_input(INPUT_POST, "text", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -135,8 +169,7 @@
 			$stmt->bindParam(':place', $filteredPlace);
 			$stmt->bindParam(':id', $filteredId);
 			$stmt->execute();
-			header('location:edit.php');
-			die();
+			echo "<meta http-equiv=refresh content=\"0; URL=edit.php\">";
 	}
 ?>
 	 <!--<section class="forms">

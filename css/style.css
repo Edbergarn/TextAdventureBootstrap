@@ -47,7 +47,6 @@
 
 main {
     margin: 0 auto;
-    width: 90%;
 }
 
 html {
@@ -88,6 +87,7 @@ h1, h2, h3, h4 {
 .link:hover {
     background-color: #ddd;
     color: black;
+    text-decoration: none;
 }
 #storyText{
     font-size: 150%;
@@ -121,19 +121,20 @@ tr:nth-child(even) {
 }
 #textarea{
     width: 100%;
-    height: 10vw;
+    height: 20vh;
 }
 #place{
     width: 100%;
-    height: 3vw;
+    height: 6vh;
 }
 #insert{
     width: 100%;
-    height: 3vw;
+    height: 6vh;
     background-color: #ad1b1b;
     border-color: #ad1b1b;
     color: white;
     font-size: 1.2em;
+    margin-top: 5vh;
 }
 .forms{
     text-align: center;
@@ -143,4 +144,7 @@ tr:nth-child(even) {
 }
 .navbar-brand{
     margin: 0 auto;
+}
+.start{
+    font-size: 200%;
 }

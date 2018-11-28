@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="se">
 <head>
-	<title>Soloäventyr</title>
+	<title>Jörgens Kärleksäventyr</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 
@@ -28,7 +28,7 @@
 				<a class="nav-link active" href="index.php">Hem</a>	
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="play.php?page=7">Spela</a>	
+				<a class="nav-link" href="play.php">Spela</a>	
 			</li>			
 			<li class="nav-item">
 				<a class="nav-link" href="edit.php">Redigera</a>	
@@ -42,8 +42,16 @@
 	</nav>	
 <main class="content">
 	<section>
-		<h1>Jörgens Kärleksäventyr</h1>
-		<p>Här kan man ju skriva vad skiten handlar om, inget jag prioriterar.</p>
+		<!--<h1>Jörgens Kärleksäventyr</h1>-->
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+				</div>
+				<div class="col-6">
+					<img class="img-fluid" src="JorgensKarleksaventyrBig.png">
+					<p>Häng med Jörgen på hans resa genom kärlekens alla problem.</p>
+				</div>
+			</div>
 <?php
 
 
@@ -51,6 +59,7 @@
 
 
 ?>
+</section>
 </main>
 <script src="js/navbar.js"></script>
 </body>
