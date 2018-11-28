@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 	<title>Jörgens Kärleksäventyr - Spela</title>
-	<link href="https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather%7CMerriweather+Sans" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -32,7 +32,7 @@
 				</li>			
 			</ul>
 		</div>
-		<a class="navbar-brand"><img src="JorgensKarleksaventyr.png"></a>
+		<a class="navbar-brand"><img src="JorgensKarleksaventyr.png" alt=""></a>
 	</nav>
 <main class="content">
 	<div class="container-fluid">

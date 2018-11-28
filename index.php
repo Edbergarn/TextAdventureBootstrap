@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 
-	<link href="https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather%7CMerriweather+Sans" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -37,29 +37,22 @@
 		
 		</div>
 		
-		<a class="navbar-brand"><img src="JorgensKarleksaventyr.png"></a>
+		<a class="navbar-brand"><img src="JorgensKarleksaventyr.png" alt="placeholder"></a>
 		
 	</nav>	
 <main class="content">
-	<section>
-		<!--<h1>Jörgens Kärleksäventyr</h1>-->
+	
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
 				</div>
 				<div class="col-6">
-					<img class="img-fluid" src="JorgensKarleksaventyrBig.png">
+					<img class="img-fluid" src="JorgensKarleksaventyrBig.png" alt="">
 					<p>Häng med Jörgen på hans resa genom kärlekens alla problem.</p>
 				</div>
 			</div>
-<?php
+		</div>
 
-
-
-
-
-?>
-</section>
 </main>
 <script src="js/navbar.js"></script>
 </body>

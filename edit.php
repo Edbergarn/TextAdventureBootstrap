@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link href="https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather%7CMerriweather+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -38,11 +38,10 @@
 		
 		</div>
 		
-		<a class="navbar-brand"><img src="JorgensKarleksaventyr.png"></a>
+		<a class="navbar-brand"><img src="JorgensKarleksaventyr.png" alt=""></a>
 		
 	</nav>
 <main class="content">
-	<section>
 		<div class="containter">
 			<div class="row">
 				<div class="col-1">
@@ -85,7 +84,7 @@
 	foreach ($row as $value) {
 		echo "<tr>";
 		echo "<td>" . $value['id'] . "</td>";
-		echo "<td>" . substr($value['text'], 0, 40) . "...</td>"; // substr pajjar teckenkodning?
+		echo "<td>" . substr($value['text'], 0, 42) . "...</td>"; // substr pajjar teckenkodning?
 		echo "<td>" . $value['place'] . "</td>";
 		echo "<td><a href=\"edit.php?edit=" . $value['id'] . "\"><i class=\"material-icons\">edit</i></a>";
 		echo "<a href=\"edit.php?delete=" . $value['id'] . "\"><i class=\"material-icons\">delete_forever</i></a></td>";
@@ -97,16 +96,14 @@
 			<div class="col-1">
 			</div>
 		</div>
-	</section>
+	
 	<div class="row">
 		<div class="col-1">
 		</div>
 		<div class="col-10">
-			<section class="forms">
-
-			<form action="" method="post">
+			<form action="edit.php" method="post">
 				<div class="form-group">
-					<label for="text">Story</label>
+					<label for="textarea">Story</label>
 				</div>
 				<div class="form-group">	
 					<textarea name="text" id="textarea" rows="5" cols="50">
@@ -139,7 +136,7 @@
 	else {
 		echo "<div class=\"form-group\">";
 			echo "<input type=\"text\" name=\"place\" id=\"place\">";
-		echo "</div";
+		echo "</div>";
 		echo "<div class=\"form-group\">";
 			echo "<input type=\"submit\" name=\"insert\" id=\"insert\" value=\"Lägg till\">";
 		echo "</div>";
@@ -147,7 +144,9 @@
 
 	echo "</form>";
 	echo "</div>";
-	echo "</section>";
+	echo "</div>";
+	echo "</div>";
+
 
 	if (isset($_POST['insert'])) {
 		$filteredText = filter_input(INPUT_POST, "text", FILTER_SANITIZE_SPECIAL_CHARS);	
@@ -172,24 +171,6 @@
 			echo "<meta http-equiv=refresh content=\"0; URL=edit.php\">";
 	}
 ?>
-	 <!--<section class="forms">
-		<form id="create" action="edit.php" method="POST">
-		<p>
-			<label>Story</label><br>
-			<textarea name="text" id="textarea" >
-			</textarea>
-		</p>
-		<p>	
-			<label>Place</label><br>
-			<input type="text" name="place" id="place" >
-		</p>
-		<p>
-			<input type="submit" name="insert" id="insert">
-		</p>
-		</form>
-</section>-->
 </main>
-<script src="js/navbar.js">
-</script>
 </body>
 </html>
